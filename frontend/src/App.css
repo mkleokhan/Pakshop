@@ -1,0 +1,35 @@
+.shiftNavItemRight{
+margin-left: 45%;
+}
+
+.whiteFontsInNav{
+  color: white !important;
+}
+
+.products{
+  display: inline !important;
+  margin-left: 5%;
+}
+
+.sideBar{
+  margin-left: 2%;
+  color: black !important;
+}
+
+.haveAccount{
+  display: block;
+  float: left;
+}
+.dontHaveAcount{
+  display: inline; float:left;
+  color: black;
+}
+
+.linkColor{
+  color: green;
+  text-decoration: none;
+}
+
+h3{
+  color: green;
+}
