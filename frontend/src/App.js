@@ -11,7 +11,7 @@ import LogOut from './admin/LogOut'
 import ContactUs from './admin/ContactUs' 
 import AboutUs from './admin/AboutUs';
 import  Products from './admin/Products'
-import Image from './admin/Image'
+
 
 
 
@@ -34,7 +34,7 @@ function App() {
       <Route exact path='/admin/ContactUs' element={<ContactUs/>}></Route>
       <Route exact path='/admin/AboutUs' element={<AboutUs/>}></Route>
       <Route exact path='/admin/products' element={<Products/>}></Route>
-      <Route exact path='/admin/image' element={<Image/>}></Route>
+      
       </Routes>
 
     

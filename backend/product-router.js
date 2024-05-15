@@ -8,7 +8,7 @@ const [createProduct, getProducts] = require('./controlllers/products-controller
 
 // Create an instance of Multer middleware with the configured storage options
 const upload = require('./middlewares/upload');
-const { validate } = require('./models/contact-model');
+
 
 // Route for creating a product with file upload
 // console.log('PRODUCT ROUTER')
@@ -16,7 +16,7 @@ const { validate } = require('./models/contact-model');
 // console.log('upload.single k baad waali line')
 // console.log(typeof(image))
 
-router.route('/createProduct').post( upload.single('image'),createProduct);
+router.route('/createProduct').post( upload.single('image'), createProduct);
 router.route('/allProducts').get(getProducts)
 
 module.exports = router;

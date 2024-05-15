@@ -5,35 +5,36 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Products() {
 
+    console.log(window.location.origin)
     const [products, setProducts] = useState([]);
     const [productImage, setProductImage] = useState();
     const [allProducts, setAllProducts] = useState([]);
-    
+
 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        
+
         setProducts(prevProduct => ({
             ...prevProduct,
             [name]: value,
-            
+
         }));
 
-   
+
     };
-    
+
     console.log("product before the button is clicked", products)
 
     // const handleFileChange = (e) => {
     //     setProducts(previousImage => ({
     //         ...previousImage,
-            
-            
+
+
 
 
     //     }));
-        
+
     //     const file = e.target.files[0];
 
     //     setProductImage(file)
@@ -88,7 +89,7 @@ function Products() {
                     // Log the fetched data to check its structure
                     setAllProducts(products); // Set the product state to the Products array
                     console.log(allProducts)
-                    
+
                 } catch (error) {
                     console.log("error occured...")
                 }
@@ -105,7 +106,7 @@ function Products() {
 
     useEffect(() => {
         fetchProducts();
-        
+
     }, []); // Fetch products on component mount
     return (
         <div>
@@ -122,8 +123,8 @@ function Products() {
                             <input className="form-control" type="text" id="category" name="category" onChange={handleChange} />
 
                             <br />
-                            <input onChange={(e)=>setProductImage(e.target.files[0])} name="image"   type="file" accept="image/*" />
-                          
+                            <input onChange={(e) => setProductImage(e.target.files[0])} name="image" type="file" accept="image/*" />
+
 
 
                             <button className="btn btn-success" id="addButton" type="submit">Add Product</button>
@@ -131,13 +132,24 @@ function Products() {
 
                     </div>
                     <div>
-                        
-                 
-        
- 
 
 
-</div>
+
+                    {allProducts.map((product, index) => (
+  <div key={index}>
+    <h3>{product.name}</h3>
+    <h3>Category: {product.category}</h3>
+    <h3>{product.image}</h3>
+    <img src={import(`../uploaded-images/${product.image}`)} alt={product.name} />
+    
+  </div>
+))}
+
+
+
+
+
+                    </div>
 
                 </div>
             </div>

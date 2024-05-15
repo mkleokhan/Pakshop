@@ -1,15 +1,18 @@
 const Products = require("../models/products-model")
+const upload = require('../middlewares/upload')
 
 const createProduct = async (req, res)=>{
    try {
     const {name,category} = req.body;
+    const imageName = req.file.filename;
     // console.log('got something in request body', response)
     // console.log('files in the request', req.file)
-    const product = new Products({ name, category, image: req.file.originalname });
-    const createdProduct = await Products.create(product)
-    product.save( product)
+    const product =  await Products.create({ name, category, image: imageName });
+    
+    
+    
 
-    console.log("\nProducted ",createdProduct)
+    console.log("\nProducted ",product)
     return res.status(200).json({msg:"Product added successfully..."})
 
     

@@ -4,11 +4,11 @@ const path = require('path');
 // Define storage options
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/images');
+    cb(null, '../frontend/src/uploaded-images');
   },
   filename: function (req, file, cb) {
     // Save filename with extension
-    cb(null, file.originalname + '-' + Date.now() + path.extname(file.originalname));
+    cb(null, Date.now() + (file.originalname));
   }
 });
 

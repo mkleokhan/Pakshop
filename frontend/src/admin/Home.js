@@ -138,7 +138,7 @@
 // export default Home;
 
 import { Link } from "react-router-dom";
-import red from '../includes/images/redTeddy.jpeg'
+
 import { useAuth } from "../store/auth"
 import { useState, useEffect } from "react";
 
