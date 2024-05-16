@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function Products() {
 
     console.log(window.location.origin)
@@ -107,7 +108,7 @@ function Products() {
     useEffect(() => {
         fetchProducts();
 
-    }, []); // Fetch products on component mount
+    },[]); // Fetch products on component mount
     return (
         <div>
             <ToastContainer />
@@ -129,26 +130,22 @@ function Products() {
 
                             <button className="btn btn-success" id="addButton" type="submit">Add Product</button>
                         </form>
-
+                            
                     </div>
                     <div>
 
 
 
                     {allProducts.map((product, index) => (
+                        
   <div key={index}>
     <h3>{product.name}</h3>
     <h3>Category: {product.category}</h3>
     <h3>{product.image}</h3>
-    <img src={import(`../uploaded-images/${product.image}`)} alt={product.name} />
+    <img src={require(`./uploaded-images/${product.image}`)} alt={product.image} width={300} height={300} />
     
   </div>
 ))}
-
-
-
-
-
                     </div>
 
                 </div>
