@@ -109,7 +109,7 @@ function Products() {
     useEffect(() => {
         fetchProducts();
 
-}); // Fetch products on component mount
+},[]); // Fetch products on component mount
     return (
         <div>
             <ToastContainer />
