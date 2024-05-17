@@ -12,7 +12,7 @@ import ContactUs from './admin/ContactUs'
 import AboutUs from './admin/AboutUs';
 import  Products from './admin/Products'
 import Footer from './admin/footer'
-import User from './admin/userProfile'
+import User from './admin/UserProfile'
 
 
 
