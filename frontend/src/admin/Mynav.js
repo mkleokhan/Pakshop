@@ -35,9 +35,15 @@ function Mynav(){
       </li >
        
       {
-        isLoggedIn ?(<li className='nav-item'>
+        isLoggedIn ?
+        ( <> <li className='nav-item'>
+        <Link className='nav-link whiteFontsInNav' to="/admin/userProfile">Profile</Link>
+      </li>
+        <li className='nav-item'>
       <Link className='nav-link whiteFontsInNav' to="/admin/LogOut">Logout</Link>
-    </li>)
+    </li>
+    </>
+    )
           :
       
    

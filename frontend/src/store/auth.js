@@ -37,8 +37,8 @@ export const AuthProvider  = ({children}) =>{
   
             if(responce.ok){
                const  data = await  responce.json();
-              
-                setUser(data)
+            //   console.log('data from the auth.js context api', data.userData)
+                setUser(data.userData[0])
                 
            }
         } catch (error) {

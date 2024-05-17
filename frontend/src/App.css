@@ -11,10 +11,7 @@ margin-left: 45%;
   margin-left: 5%;
 }
 
-.sideBar{
-  margin-left: 2%;
-  color: black !important;
-}
+
 
 .haveAccount{
   display: block;
@@ -29,12 +26,44 @@ margin-left: 45%;
   color: green;
   text-decoration: none;
 }
-
+/* 
 h3{
   color: green;
-}
+} */
 
 .textWhite{
   color: white;
   text-decoration: none;
+}
+footer{
+  text-align: center;
+  /* padding: 20px ; */
+  position: relative;
+  width: '100%';
+   margin-top: 5%; 
+}
+
+.sideNav{
+  
+  
+ justify-content: flex-start;
+ color: white !important;
+  margin-bottom: 10%;
+
+
+}
+
+.btn:hover{
+  background-color: greenyellow;
+}
+
+.sideNav>h5{
+  color: greenyellow;
+  text-decoration: none;
+  justify-content: center;
+  text-align: center;
+}
+
+.noSpace{
+  margin:0%;
 }

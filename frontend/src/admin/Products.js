@@ -50,6 +50,7 @@ function Products() {
             const formData = new FormData();
             formData.append("name", products.name);
             formData.append("category", products.category)
+            formData.append('price', products.price)
             formData.append("image", productImage); // Append the image file to FormData
 
             // console.log('button is clicked: product image is', productImage)
@@ -104,12 +105,17 @@ function Products() {
         }
     };
 
+    const addToCart =()=>{
+        
+        window.location.reload();
+    }
+
 
 
     useEffect(() => {
         fetchProducts();
 
-},[]); // Fetch products on component mount
+},); // Fetch products on component mount
     return (
         <div>
             <ToastContainer />
@@ -123,7 +129,8 @@ function Products() {
                             <input className="form-control" type="text" id="productName" name="name" onChange={handleChange} />
                             <label htmlFor="category">Product Category</label>
                             <input className="form-control" type="text" id="category" name="category" onChange={handleChange} />
-
+                            <label htmlFor="price">Price</label>
+                            <input className="form-control" type="number" id="price" name="price" onChange={handleChange} />
                             <br />
                             <input onChange={(e) => setProductImage(e.target.files[0])} name="image" type="file" accept="image/*" />
 
@@ -140,11 +147,13 @@ function Products() {
         <div className="card-header bg-success textWhite">{product.name}</div>
         <div className="card-body">
           <img src={require(`./uploaded-images/${product.image}`)} alt={product.image} width={200} height={200} />
-          <h5>Description</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quaerat minima voluptate vitae facilis labore laudantium iure eaque! Explicabo laborum autem doloremque, ipsum aperiam veritatis maxime eveniet quis reiciendis deserunt!</p>
-        </div>
+          <h5>Price: {product.price} <br /><button className="btn" ><i className="fa fa-shopping-cart " onClick={addToCart}></i></button> <button className="btn"><i className="fa fa-heart " ></i></button></h5>
+          </div>
         <div className="card-footer bg-success textWhite">
-            <h5>Price: $100</h5> <button>Buy</button> <button>Add to Cart</button> <button>Add to Favorite</button>
+        <h5>Description</h5>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+
         </div>
       </div>
     </div>

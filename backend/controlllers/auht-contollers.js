@@ -113,11 +113,11 @@ const login = async (req, res) => {
 
 const userController = async (req, res)=>{
     const userData = await User.find(req.user);
-
+    
     
     // res.status(200).json({Id: userData._id, email: userData.email, name: userData.name, phone: userData.phone })
     // json({id: userData._id, name: userData.name, email:userData.email, })
-    res.status(200).json({users: userData})
+    res.status(200).json({userData})
 }
 
 

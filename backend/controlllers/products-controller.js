@@ -4,21 +4,22 @@ const upload = require('../middlewares/upload');
 const { response } = require("express");
 
 const createProduct = async (req, res)=>{
+    console.log(req)
    try {
-    const {name,category} = req.body;
+    const {name,category,price} = req.body;
     const imageName = req.file.filename;
     // Check if category exists
         let existingCategory = await Categories.findOne({ name: category });
         if (existingCategory) {
             // Category exists, create product and return
-            const product = await Products.create({ name, category, image: imageName });
+            const product = await Products.create({ name, category, image: imageName, price });
             console.log("\nProduct created: ", product);
             return res.status(200).json({ msg: "Product added successfully..." });
         } else {
             // Category doesn't exist, create category first
             const createdCategory = await Categories.create({ name: category });
             // Create product with the newly created category
-            const product = await Products.create({ name,  category, image: imageName });
+            const product = await Products.create({ name,  category, image: imageName,price });
             console.log("\nProduct created: ", product);
             console.log("\nCategory created: ", createdCategory);
             return res.status(200).json({ msg: "Product and Category added successfully..." });

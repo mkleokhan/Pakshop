@@ -1,31 +1,31 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import { useEffect } from "react";
 
 
 
 function ContactUs() {
     const {isLoggedIn} = useAuth();
+    const {user} = useAuth()
     const [contact, setContact] = useState({
-        name: "",
-        email: "",
+        name: '',
+        email: '',
         message: ""
     })
-
-    const {user} = useAuth();
+        const [userData, setUserData] = useState(true);
+        if(user && userData){
+            setContact({
+                name: user.name,
+                email: user.email,
+                message: ""
+            })
+            setUserData(false)
+        }
+//    console.log(user)
     
     
-
-    const [userData, setUserData] = useState('true')
-
-    if(user && userData){
-        setContact({
-            name: "" || user.name,
-            email: "" || user.email,
-            message: ''
-        })
-        setUserData(false)
-       
-    }
+    
+//    console.log(contact)
     
     const handleInput= (e)=>{
        
@@ -74,7 +74,7 @@ function ContactUs() {
 
 <form  onSubmit={send}>
     <label htmlFor="name">Name</label>
-    <input type="text" id="name" name="name" className="form-control"  value={contact.name }
+    <input type="text" id="name" name="name" className="form-control"  value={contact.name} 
     />
     <label htmlFor="email">Email</label>
     <input type="email" id="email" name="email" className="form-control"  value={contact.email}
